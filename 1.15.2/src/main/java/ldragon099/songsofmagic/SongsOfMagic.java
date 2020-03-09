@@ -3,6 +3,7 @@ package ldragon099.songsofmagic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import ldragon099.songsofmagic.capabilities.PlayerFluxProvider;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -28,6 +29,8 @@ public class SongsOfMagic {
 	
 	//Server stuff that needs to be rendered for everyone
 	private void setup(final FMLCommonSetupEvent event) {
+		PlayerFluxProvider.register();
+		
 		Logger.info("Setup method registered.");
 	}
 	
@@ -35,4 +38,6 @@ public class SongsOfMagic {
 	private void clientRegistries(final FMLClientSetupEvent event) {
 		Logger.info("Client method registered.");
 	}
+	
+	
 }
