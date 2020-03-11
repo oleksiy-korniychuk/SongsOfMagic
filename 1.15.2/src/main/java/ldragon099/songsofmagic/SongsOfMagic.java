@@ -1,6 +1,6 @@
 package ldragon099.songsofmagic;
 
-import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.LogManager; //Imported Libraries
 import org.apache.logging.log4j.Logger;
 
 import ldragon099.songsofmagic.capabilities.PlayerFluxProvider;
