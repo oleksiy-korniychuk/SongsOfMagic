@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "testmod:block/blighted_vines"
+      }
+    ]
+  }
+}

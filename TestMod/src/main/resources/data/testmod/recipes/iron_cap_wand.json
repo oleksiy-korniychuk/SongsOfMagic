@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	
+	"pattern":
+	[
+		"  C",
+		" S ",
+		"S  "
+	],
+	
+	"key":
+	{
+		"C": { "item": "testmod:iron_cap"},
+		"S": { "item": "minecraft:stick"}
+	},
+	
+	"result": { "item": "testmod:iron_cap_wand"}
+}
