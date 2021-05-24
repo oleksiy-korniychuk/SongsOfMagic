@@ -10,19 +10,22 @@ import java.lang.Math;
 
 public class InfectionSpreader {
 	public static void SpreadInfection(World worldIn, BlockPos pos) {
-		System.out.printf("SpreadInfection\n");
-		//Increases taint spread by one block for every 10 levels, might need to be upped to a higher threshold, gets laggy fast
+		System.out.print("SpreadInfection\n");
+		//Increases taint spread by one block for every 10 levels, might need to be upped to a higher threshold,
+		// gets laggy fast
         int int1 = -1;
         int int2 = 1;
         //Block myBlock = worldIn.getBlockState(pos).getBlock();
         boolean spread = false;
+        //x & y & z are coordinates for the world in 3d space
         for (int x = int1; x <= int2; x++) {
             for (int y = int1; y <= int2; y++) {
                 for (int z = int1; z <= int2; z++) {
                     BlockPos nPos = pos.add(x, y, z);
+                    //checking where block will go
                     Block b = worldIn.getBlockState(nPos).getBlock();
                     if(b instanceof AirBlock) {
-                    	
+                    	//Cant put spread blocks to air...yet
                     	boolean valid = false;
                     	for (int x_1 = -1; x_1 <= 1; x_1++) {
                     		for (int y_1 = -1; y_1 <= 1; y_1++) {
@@ -30,6 +33,7 @@ public class InfectionSpreader {
                     				if((Math.abs(x_1) + Math.abs(y_1) + Math.abs(z_1)) == 1) {
 	                            		BlockPos nPos_1 = nPos.add(x_1, y_1, z_1);
 	                            		Block next = worldIn.getBlockState(nPos_1).getBlock();
+	                            		//again we want to avoid air blocks and other blighted vines
 	                            		if(!(next instanceof AirBlock) && !next.equals(BlockList.blighted_vines)) {
 	                            			System.out.printf("Pos_1 : %d, %d, %d\n", x_1, y_1, z_1);
 	                            			valid = true;

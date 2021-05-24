@@ -1,9 +1,7 @@
 package alexe.testmod;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
 import net.minecraft.block.AirBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -13,6 +11,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.Random;
 
 public class InfectedBlock extends Block{
 
@@ -29,11 +29,7 @@ public class InfectedBlock extends Block{
 	
 	@Override
 	public boolean ticksRandomly(BlockState state) {
-		if(state.get(ModBlockStates.FULLYINFECTED) == true) {
-			return false;
-		}
-		
-		return true;
+		return !state.get(ModBlockStates.FULLYINFECTED);
 	}
 	
 	public void tick(BlockState state, World worldIn, BlockPos pos, Random random) {
@@ -53,7 +49,7 @@ public class InfectedBlock extends Block{
             }
         }
         
-        if(surrounded == true) {
+        if(surrounded) {
         	worldIn.setBlockState(pos, state.with(ModBlockStates.FULLYINFECTED, true));
         }
         else {
